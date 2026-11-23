@@ -1,6 +1,8 @@
-"""Run this project's full unittest suite from the repository root."""
+"""Run this project's full unittest suite and the completion work-order probes."""
 import sys
 import unittest
+
+from examples import completion_probe
 
 
 def main():
@@ -23,7 +25,12 @@ def main():
           f'expected_failures={len(result.expectedFailures)} '
           f'unexpected_successes={len(result.unexpectedSuccesses)} '
           f'result={"PASS" if successful else "FAIL"}')
-    return 0 if successful else 1
+    if not successful:
+        return 1
+    completion_probe.legacy()
+    completion_probe.completion()
+    print('COMPLETION PROBES legacy=PASS completion=PASS')
+    return 0
 
 
 if __name__ == '__main__':
