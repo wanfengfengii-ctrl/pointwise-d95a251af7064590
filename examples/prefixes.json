@@ -1,0 +1,5 @@
+[
+  {"name": "entered", "start": "0"},
+  {"name": "threshold", "start": "2"},
+  {"name": "corrected", "start": "4", "corrects": "entered"}
+]
